@@ -13,6 +13,9 @@ hi def link funcDef Statement
 hi def link funcName Function
 hi def link num Constant
 hi def link specialIdentifier Special
+hi def link string String
+hi def link decorator Function
+hi def link directive PreProc
 
 syn keyword statement call jmp ret abs rel if const let end from import static_assert local tempvar
   \ felt return assert member cast else alloc_locals as with with_attr nondet dw codeoffset new
@@ -25,3 +28,6 @@ syn match funcName '[a-zA-Z_][a-zA-Z0-9_]*' display contained
 syn match num '[+-]\?\d\+'
 syn region cairoHint matchgroup=SpecialComment start="%{" keepend end="%}" contains=@python
 syn region pythonLiteral matchgroup=SpecialComment start="%\[" keepend end="%\]" contains=@python
+syn region string start=/\v'/ skip=/\v\\./ end=/\v'/
+syn match decorator '^@.*$'
+syn match directive '^%.*$'
